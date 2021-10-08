@@ -201,10 +201,22 @@ cmp al,01h
 je addition
     jmp sub_label
     addition:
-        print 'hi'
+        mov ax,a_real     ;moving a_real into AX register
+        add ax,b_real     ;adding value of AX(i.e value of a_real) with b_real
+        printn
+        printn
+        print 'THE SUM OF THE TWO COMPLEX NUMBERS IS:'
+        call print_num
         
-                               
-    jmp stop
+        mov ax,a_imag     ;moving a_imag into AX register
+        add ax,b_imag     ;adding value of AX(i.e value of a_imag) with b_imag
+        
+        ;printing in A+iB form  
+        print '+ i ('     
+        call print_num
+        print ')'
+      jmp stop
+        
 
 
 ;IF INPUT==2 do subtraction 
